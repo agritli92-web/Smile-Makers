@@ -54,16 +54,21 @@ header{position:sticky;top:0;z-index:50;background:var(--b);color:#fff}
 .trust{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:28px;font-size:.9rem}
 .trust span{background:#ffffff1c;border:1px solid #fff3;padding:4px 14px;border-radius:20px}
 /* hero visual */
-.hv{position:relative;width:220px;height:220px;margin:34px auto 0;display:grid;place-items:center}
-.hv:before{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,#f1d27a55,transparent 68%);animation:pl 3.5s ease-in-out infinite}
-.hv .rg{position:absolute;inset:14px;border-radius:50%;border:2px dashed #f1d27a99;animation:sp 24s linear infinite}
-.hv img{width:120px;height:auto;position:relative;animation:fl 4s ease-in-out infinite;filter:drop-shadow(0 12px 18px #0007)}
-.hv i{position:absolute;width:16px;height:16px;background:var(--g2);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);animation:tw 2.6s ease-in-out infinite var(--d)}
-@keyframes fl{50%{transform:translateY(-12px)}}
-@keyframes pl{50%{transform:scale(1.12);opacity:.7}}
+.hg{display:grid;gap:30px;align-items:center}
+.hv{width:min(320px,80vw);margin:auto;animation:fl 5s ease-in-out 2.5s infinite}
+.hv svg{display:block;width:100%;height:auto;filter:drop-shadow(0 16px 28px #0008)}
+.sm .rg{transform-origin:200px 200px;animation:sp 40s linear infinite}
+.sm .t{transform-box:fill-box;transform-origin:center;animation:pop .7s cubic-bezier(.3,1.7,.5,1) both;animation-delay:calc(.4s + var(--i)*.1s)}
+.sm .lip{stroke-dasharray:1;animation:dr 1.3s ease-out .2s both}
+.sm .l2{animation-delay:.6s}
+.sm .sp{transform-box:fill-box;transform-origin:center;animation:tw 2.8s ease-in-out infinite var(--d);animation-delay:calc(1.8s + var(--d))}
+@keyframes pop{from{transform:scale(0);opacity:0}}
+@keyframes dr{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes fl{50%{transform:translateY(-10px)}}
 @keyframes sp{to{transform:rotate(360deg)}}
-@keyframes tw{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
-@media(prefers-reduced-motion:reduce){.hv *,.hv:before{animation:none!important}.hv i{opacity:1}}
+@keyframes tw{0%,100%{opacity:0;transform:scale(.2)}50%{opacity:1;transform:scale(1)}}
+@media(min-width:860px){.hg{grid-template-columns:1.15fr .85fr}.hero{text-align:start}.hero p{margin-inline:0}.hero .cta,.hero .trust{justify-content:flex-start}.hv{width:min(400px,100%)}}
+@media(prefers-reduced-motion:reduce){.hv,.sm *{animation:none!important}}
 /* cards */
 .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
 .card{background:#fff;border:1px solid #e3e8f5;border-radius:16px;padding:22px;box-shadow:0 4px 14px #0a1f6b0d;transition:transform .25s}
@@ -146,12 +151,24 @@ footer nav{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:10
 
 <main id="top">
 <section class="hero"><div class="c">
-<!-- TODO: يمكن إضافة صورة Hero خفيفة لاحقاً (بدون loading=lazy) -->
+<div class="hg"><div class="ht"><!-- TODO: يمكن إضافة صورة Hero خفيفة لاحقاً (بدون loading=lazy) -->
 <h1 data-t="h1"></h1>
 <p data-t="hp"></p>
 <div class="cta"><a href="#booking" class="btn gold" data-t="b1"></a><a class="btn ghost wal" href="#" target="_blank" rel="noopener" data-t="b2"></a></div>
-<div class="trust"><span data-t="tr1"></span><span data-t="tr2"></span></div>
-<div class="hv" aria-hidden="true"><div class="rg"></div><img src="images/logo.webp" width="256" height="217" alt=""><i style="top:6%;left:24%;--d:0s"></i><i style="top:18%;right:8%;--d:.8s"></i><i style="bottom:14%;left:6%;--d:1.4s"></i><i style="bottom:4%;right:26%;--d:.4s"></i></div>
+<div class="trust"><span data-t="tr1"></span><span data-t="tr2"></span></div></div><div class="hv"><svg viewBox="0 0 400 400" role="img" aria-label="Smile Makers" class="sm">
+<defs><radialGradient id="bg" cx="50%" cy="40%" r="70%"><stop offset="0" stop-color="#2a45c8"/><stop offset="1" stop-color="#071650"/></radialGradient>
+<linearGradient id="tg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#e3eafb"/></linearGradient>
+<linearGradient id="gd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f1d27a"/><stop offset="1" stop-color="#c8981f"/></linearGradient></defs>
+<circle cx="200" cy="200" r="186" fill="url(#bg)" stroke="url(#gd)" stroke-width="4"/>
+<circle class="rg" cx="200" cy="200" r="172" fill="none" stroke="#f1d27a" stroke-opacity=".5" stroke-width="1.5" stroke-dasharray="3 9"/>
+<path class="lip" pathLength="1" d="M62 120Q200 200 338 120" fill="none" stroke="url(#gd)" stroke-width="7" stroke-linecap="round"/>
+<g transform="rotate(32.1 88 136.9)"><rect class="t" style="--i:6" x="73" y="136.9" width="30" height="40" rx="11" fill="url(#tg)" stroke="#c9d4f2" stroke-width="1"/></g><g transform="rotate(24.1 120 154.1)"><rect class="t" style="--i:4" x="105" y="154.1" width="30" height="46" rx="11" fill="url(#tg)" stroke="#c9d4f2" stroke-width="1"/></g><g transform="rotate(15.0 152 165.5)"><rect class="t" style="--i:2" x="137" y="165.5" width="30" height="50" rx="11" fill="url(#tg)" stroke="#c9d4f2" stroke-width="1"/></g><g transform="rotate(5.1 184 171.3)"><rect class="t" style="--i:0" x="169" y="171.3" width="30" height="54" rx="11" fill="url(#tg)" stroke="#c9d4f2" stroke-width="1"/></g><g transform="rotate(-5.1 216 171.3)"><rect class="t" style="--i:1" x="201" y="171.3" width="30" height="54" rx="11" fill="url(#tg)" stroke="#c9d4f2" stroke-width="1"/></g><g transform="rotate(-15.0 248 165.5)"><rect class="t" style="--i:3" x="233" y="165.5" width="30" height="50" rx="11" fill="url(#tg)" stroke="#c9d4f2" stroke-width="1"/></g><g transform="rotate(-24.1 280 154.1)"><rect class="t" style="--i:5" x="265" y="154.1" width="30" height="46" rx="11" fill="url(#tg)" stroke="#c9d4f2" stroke-width="1"/></g><g transform="rotate(-32.1 312 136.9)"><rect class="t" style="--i:7" x="297" y="136.9" width="30" height="40" rx="11" fill="url(#tg)" stroke="#c9d4f2" stroke-width="1"/></g>
+<g transform="rotate(24.1 120 210.1)"><rect class="t" style="--i:4" x="105" y="210.1" width="30" height="30" rx="11" fill="url(#tg)" stroke="#c9d4f2" stroke-width="1"/></g><g transform="rotate(15.0 152 221.5)"><rect class="t" style="--i:2" x="137" y="221.5" width="30" height="34" rx="11" fill="url(#tg)" stroke="#c9d4f2" stroke-width="1"/></g><g transform="rotate(5.1 184 227.3)"><rect class="t" style="--i:0" x="169" y="227.3" width="30" height="36" rx="11" fill="url(#tg)" stroke="#c9d4f2" stroke-width="1"/></g><g transform="rotate(-5.1 216 227.3)"><rect class="t" style="--i:1" x="201" y="227.3" width="30" height="36" rx="11" fill="url(#tg)" stroke="#c9d4f2" stroke-width="1"/></g><g transform="rotate(-15.0 248 221.5)"><rect class="t" style="--i:3" x="233" y="221.5" width="30" height="34" rx="11" fill="url(#tg)" stroke="#c9d4f2" stroke-width="1"/></g><g transform="rotate(-24.1 280 210.1)"><rect class="t" style="--i:5" x="265" y="210.1" width="30" height="30" rx="11" fill="url(#tg)" stroke="#c9d4f2" stroke-width="1"/></g>
+<path class="lip l2" pathLength="1" d="M82 214Q200 350 318 214" fill="none" stroke="url(#gd)" stroke-width="7" stroke-linecap="round"/>
+<g transform="translate(300 78)"><path class="sp" style="--d:0s" d="M0-16L4.500-4.500 16 0 4.500 4.500 0 16-4.500 4.500-16 0-4.500-4.500Z" fill="#f1d27a"/></g>
+<g transform="translate(86 96)"><path class="sp" style="--d:.9s;" d="M0-16L4.500-4.500 16 0 4.500 4.500 0 16-4.500 4.500-16 0-4.500-4.500Z" fill="#fff" transform="scale(.6)"/></g>
+<g transform="translate(330 300)"><path class="sp" style="--d:1.6s" d="M0-16L4.500-4.500 16 0 4.500 4.500 0 16-4.500 4.500-16 0-4.500-4.500Z" fill="#f1d27a" transform="scale(.7)"/></g>
+</svg></div></div>
 </div></section>
 
 <section id="services"><div class="c">
