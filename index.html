@@ -53,6 +53,17 @@ header{position:sticky;top:0;z-index:50;background:var(--b);color:#fff}
 .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .trust{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:28px;font-size:.9rem}
 .trust span{background:#ffffff1c;border:1px solid #fff3;padding:4px 14px;border-radius:20px}
+/* hero visual */
+.hv{position:relative;width:220px;height:220px;margin:34px auto 0;display:grid;place-items:center}
+.hv:before{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,#f1d27a55,transparent 68%);animation:pl 3.5s ease-in-out infinite}
+.hv .rg{position:absolute;inset:14px;border-radius:50%;border:2px dashed #f1d27a99;animation:sp 24s linear infinite}
+.hv img{width:120px;height:auto;position:relative;animation:fl 4s ease-in-out infinite;filter:drop-shadow(0 12px 18px #0007)}
+.hv i{position:absolute;width:16px;height:16px;background:var(--g2);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);animation:tw 2.6s ease-in-out infinite var(--d)}
+@keyframes fl{50%{transform:translateY(-12px)}}
+@keyframes pl{50%{transform:scale(1.12);opacity:.7}}
+@keyframes sp{to{transform:rotate(360deg)}}
+@keyframes tw{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){.hv *,.hv:before{animation:none!important}.hv i{opacity:1}}
 /* cards */
 .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
 .card{background:#fff;border:1px solid #e3e8f5;border-radius:16px;padding:22px;box-shadow:0 4px 14px #0a1f6b0d;transition:transform .25s}
@@ -140,6 +151,7 @@ footer nav{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:10
 <p data-t="hp"></p>
 <div class="cta"><a href="#booking" class="btn gold" data-t="b1"></a><a class="btn ghost wal" href="#" target="_blank" rel="noopener" data-t="b2"></a></div>
 <div class="trust"><span data-t="tr1"></span><span data-t="tr2"></span></div>
+<div class="hv" aria-hidden="true"><div class="rg"></div><img src="images/logo.webp" width="256" height="217" alt=""><i style="top:6%;left:24%;--d:0s"></i><i style="top:18%;right:8%;--d:.8s"></i><i style="bottom:14%;left:6%;--d:1.4s"></i><i style="bottom:4%;right:26%;--d:.4s"></i></div>
 </div></section>
 
 <section id="services"><div class="c">
@@ -166,15 +178,9 @@ footer nav{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:10
 <section id="reviews"><div class="c">
 <h2 data-t="vh"></h2><p></p>
 <div class="grid" id="rv"></div>
-<p class="note"><a href="https://www.instagram.com/smilemakers_dz" target="_blank" rel="noopener" data-t="vm"></a></p>
 </div></section>
 
-<section id="faq" class="alt"><div class="c" style="max-width:760px">
-<h2 data-t="fh"></h2><p></p>
-<div id="fq"></div>
-</div></section>
-
-<section id="booking"><div class="c">
+<section id="booking" class="alt"><div class="c">
 <h2 data-t="bh"></h2><p data-t="bp"></p>
 <form id="f" novalidate>
 <label><span data-t="f1"></span><input id="nm" autocomplete="name"><span class="err"></span></label>
@@ -184,6 +190,11 @@ footer nav{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:10
 <label><span data-t="f5"></span><textarea id="nt" rows="3"></textarea></label>
 <button class="btn wa" type="submit" data-t="fs"></button>
 </form>
+</div></section>
+
+<section id="faq"><div class="c" style="max-width:760px">
+<h2 data-t="fh"></h2><p></p>
+<div id="fq"></div>
 </div></section>
 
 <section id="contact" class="alt"><div class="c info">
@@ -242,7 +253,7 @@ kids:['تقويم أسنان الأطفال','متابعة نمو أسنان ا�
 wh:'لماذا Smile Makers؟',
 w:['<b>استقبال راقٍ</b><br>أجواء نظيفة ومريحة منذ دخولك العيادة.','<b>تجهيزات حديثة</b><br>عيادة مجهّزة لتقديم العلاج في ظروف مريحة.','<b>دوام 24/7</b><br>نستقبلك 7 أيام في الأسبوع على مدار 24 ساعة.','<b>متابعة بعد العلاج</b><br>نبقى على تواصل معك بعد انتهاء الجلسة.','<b>مرضى من كل مكان</b><br>نستقبل مرضى من ولايات أخرى ومن الخارج.'],
 rh:'نتائج حقيقية',rp:'حرّك الشريط لمقارنة الحالة قبل وبعد',rn:'النتائج تختلف من حالة لأخرى',rm:'المزيد من النتائج على انستغرام',bf:'قبل',af:'بعد',
-gh:'جولة داخل العيادة',vh:'آراء المرضى',vm:'شاهد المزيد من الآراء على انستغرام',
+gh:'جولة داخل العيادة',vh:'آراء المرضى',
 fh:'الأسئلة الشائعة',
 fq:[['هل التبييض يضرّ الأسنان؟','عند إجرائه بعد فحص الطبيب وفي ظروف مناسبة يكون آمناً في الغالب، وقد تظهر حساسية مؤقتة عند بعض الأشخاص. الطبيب هو من يحدّد مدى ملاءمته لحالتك، فاحجز استشارتك.'],
 ['كم مدة زرع الأسنان؟','تختلف المدة من حالة إلى أخرى حسب حالة العظم واللثة وعدد الأسنان. يحدّدها الطبيب بعد الفحص، فتواصل معنا للاستشارة.'],
@@ -269,7 +280,7 @@ kids:['Orthodontie enfants','Suivi de la croissance dentaire et correction au bo
 wh:'Pourquoi Smile Makers ?',
 w:['<b>Accueil raffiné</b><br>Un cadre propre et agréable dès l\u2019entrée.','<b>Équipement moderne</b><br>Une clinique équipée pour des soins confortables.','<b>Ouvert 24h/24, 7j/7</b><br>Nous vous accueillons à toute heure.','<b>Suivi après soin</b><br>Nous restons disponibles après votre séance.','<b>Patients de partout</b><br>Nous recevons des patients d\u2019autres wilayas et de l\u2019étranger.'],
 rh:'Résultats réels',rp:'Faites glisser pour comparer avant / après',rn:'Les résultats varient d\u2019un cas à l\u2019autre',rm:'Plus de résultats sur Instagram',bf:'Avant',af:'Après',
-gh:'Visite de la clinique',vh:'Avis des patients',vm:'Plus d\u2019avis sur Instagram',
+gh:'Visite de la clinique',vh:'Avis des patients',
 fh:'Questions fréquentes',
 fq:[['Le blanchiment abîme-t-il les dents ?','Réalisé après examen par le dentiste, il est généralement sûr ; une sensibilité temporaire est possible. Le dentiste évalue si cela convient à votre cas : demandez une consultation.'],
 ['Combien de temps dure un implant ?','La durée varie selon l\u2019os, les gencives et le nombre de dents. Le dentiste la précise après examen : contactez-nous.'],
