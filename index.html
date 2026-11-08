@@ -40,6 +40,7 @@ header{position:sticky;top:0;z-index:50;background:var(--b);color:#fff}
 .brand{font-weight:700;display:flex;align-items:center;gap:8px;margin-inline-end:auto}
 .links{display:none;gap:18px;font-size:.95rem}
 .links a:hover{color:var(--g2)}
+.links .nb{color:var(--g2);font-weight:700}
 .nav .btn{min-height:38px;padding:0 14px;font-size:.9rem}
 #lang,#mb{background:none;border:1px solid #fff6;color:#fff;border-radius:8px;min-height:38px;min-width:44px;font:700 .9rem Cairo;cursor:pointer}
 #mb{font-size:1.3rem}
@@ -141,7 +142,7 @@ footer nav{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:10
 <div class="c nav">
 <a href="#top" class="brand"><img src="images/logo.webp" width="256" height="217" alt="Smile Makers"><span>Smile Makers</span></a>
 <nav class="links" id="links">
-<a href="#services" data-t="n1"></a><a href="#why" data-t="n2"></a><a href="#results" data-t="n3"></a><a href="#gallery" data-t="n4"></a><a href="#faq" data-t="n5"></a><a href="#contact" data-t="n6"></a>
+<a href="#services" data-t="n1"></a><a href="#why" data-t="n2"></a><a href="#results" data-t="n3"></a><a href="#gallery" data-t="n4"></a><a href="#booking" class="nb" data-t="n7"></a><a href="#faq" data-t="n5"></a><a href="#contact" data-t="n6"></a>
 </nav>
 <a href="#booking" class="btn gold" data-t="book"></a>
 <button id="lang" aria-label="Language">FR</button>
@@ -246,7 +247,7 @@ var REV=[
  {n:'Salim Ch',x:'يا له من خبير حقيقي، فنانٌ موهوب، بارك الله فيك، الجودة ممتازة، ما شاء الله، والسعر مناسب جدًا مع سرعة إنجاز فائقة خلال 5 أيام فقط. ستحصل على ابتسامة ساحرة، ما شاء الله! حفظك الله يا أخي، وحفظك الله، إن شاء الله!'}];
 var SV=['whiten','veneer','implant','care','hollywood','kids'];
 var T={
-ar:{n1:'الخدمات',n2:'لماذا نحن',n3:'النتائج',n4:'العيادة',n5:'الأسئلة',n6:'اتصل بنا',book:'احجز الآن',
+ar:{n1:'الخدمات',n2:'لماذا نحن',n3:'النتائج',n4:'العيادة',n5:'الأسئلة',n6:'اتصل بنا',n7:'الحجز',book:'احجز الآن',
 h1:'ابتسامتك الجديدة <span>تبدأ من هنا</span>',hp:'في Smile Makers نهتم بابتسامتك في أجواء راقية ومريحة، مع فريق يستمع إليك ويشرح لك كل خطوة. نستقبلك من كل الولايات ومن الخارج.',
 b1:'احجز موعدك',b2:'تواصل عبر واتساب',tr1:'مفتوح 7/7 – 24/24',tr2:'دار ضياف، شراقة، الجزائر',
 sh:'خدماتنا',sp:'كل ما تحتاجه لابتسامة صحية وجميلة',sb:'احجز',
@@ -273,7 +274,7 @@ bh:'احجز موعدك',bp:'املأ البيانات وسيُفتح واتسا
 e1:'أدخل اسمك',e2:'أدخل رقم هاتف جزائري صحيح',e3:'اختر الخدمة',e4:'اختر اليوم',e5:'اختر الوقت',
 msg:'مرحباً، أريد حجز موعد في عيادة Smile Makers.',
 ch:'الموقع والتواصل',ca:'العنوان',cad:'دار ضياف، شراقة، الجزائر العاصمة',co:'ساعات العمل',cod:'7 أيام/7 – على مدار 24 ساعة',cm:'افتح في Google Maps',rt:'جميع الحقوق محفوظة.'},
-fr:{n1:'Services',n2:'Pourquoi nous',n3:'Résultats',n4:'La clinique',n5:'FAQ',n6:'Contact',book:'Réserver',
+fr:{n1:'Services',n2:'Pourquoi nous',n3:'Résultats',n4:'La clinique',n5:'FAQ',n6:'Contact',n7:'Réservation',book:'Réserver',
 h1:'Votre nouveau sourire <span>commence ici</span>',hp:'Chez Smile Makers, nous prenons soin de votre sourire dans un cadre élégant et confortable, avec une équipe à votre écoute. Nous accueillons les patients de toutes les wilayas et de l\u2019étranger.',
 b1:'Prendre rendez-vous',b2:'Contact WhatsApp',tr1:'Ouvert 7j/7 – 24h/24',tr2:'Dar Diaf, Cheraga, Alger',
 sh:'Nos services',sp:'Tout pour un sourire sain et éclatant',sb:'Réserver',
